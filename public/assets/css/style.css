@@ -3,6 +3,20 @@ body {
   font-family: sans-serif
 }
 
+.stages > div {
+  padding-bottom: 15px
+}
+.stages img {
+  width: 100%
+}
+.stages .stricken {
+  width: calc(100% - 30px);
+  height: calc(100% - 19px);
+  position: absolute;
+  top: 0;
+  background-color: black
+}
+
 @media screen and (max-width: 991px) {
   .log {display: none}
 }
