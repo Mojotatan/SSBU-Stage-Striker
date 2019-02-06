@@ -2,16 +2,28 @@ body {
   margin: 0;
   font-family: sans-serif
 }
-
-.stages > div {
-  padding-bottom: 15px
-}
-.stages img {
+img {
   width: 100%
+}
+.rules h2 {
+  text-align: center
+}
+.rules .stage {
+  padding-bottom: 20px
+}
+.rule-controls {
+  display: flex;
+  justify-content: space-around
+}
+.stages {
+  padding-top: 30px
+}
+.stages > div {
+  padding-bottom: 30px
 }
 .stages .stricken {
   width: calc(100% - 30px);
-  height: calc(100% - 19px);
+  height: calc(100% - 30px);
   position: absolute;
   top: 0;
   background-color: black
@@ -19,4 +31,16 @@ body {
 
 @media screen and (max-width: 991px) {
   .log {display: none}
+}
+@media screen and (max-width: 767px) {
+  .rule-controls {
+    justify-content: space-between
+  }
+  .stages {
+    padding-top: 20px
+  }
+  .no-mobile-gutters {
+    padding-left: 5px;
+    padding-right: 5px
+  }
 }

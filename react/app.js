@@ -15,14 +15,15 @@ class Main extends React.Component {
       log: [{message: 'start', style: ''}],
       stages: stageList,// add option to load in stage list from url
       strikes: [],
-      bans: 2,
       counter: false,
       mode: 'rules'
     }
     this.pushToLog = this.pushToLog.bind(this)
     this.setModeGame = this.setModeGame.bind(this)
     this.setModeRules = this.setModeRules.bind(this)
-    this.changeBans = this.changeBans.bind(this)
+    this.makeStarter = this.makeStarter.bind(this)
+    this.makeCounterpick = this.makeCounterpick.bind(this)
+    this.makeBanned = this.makeBanned.bind(this)
     this.strike = this.strike.bind(this)
     this.resetStrikes = this.resetStrikes.bind(this)
     this.toggleCounters = this.toggleCounters.bind(this)
@@ -42,8 +43,20 @@ class Main extends React.Component {
   setModeRules() {
     this.setState({mode: 'rules'})
   }
-  changeBans(e) {
-    this.setState({bans: e.target.value})
+  makeStarter(e) {
+    let stageList = this.state.stages
+    stageList[e.target.id].status = 'starter'
+    this.setState({stages: stageList})
+  }
+  makeCounterpick(e) {
+    let stageList = this.state.stages
+    stageList[e.target.id].status = 'counterpick'
+    this.setState({stages: stageList})
+  }
+  makeBanned(e) {
+    let stageList = this.state.stages
+    stageList[e.target.id].status = 'banned'
+    this.setState({stages: stageList})
   }
   strike(e) {
     if (!this.state.strikes.includes(e.target.id)) {
@@ -64,8 +77,9 @@ class Main extends React.Component {
         <div className="row">
           <Rules
           setModeGame={this.setModeGame}
-          changeBans={this.changeBans}
-          bans={this.state.bans}
+          makeStarter={this.makeStarter}
+          makeCounterpick={this.makeCounterpick}
+          makeBanned={this.makeBanned}
           stages={this.state.stages}
           />
         </div>
@@ -77,27 +91,17 @@ class Main extends React.Component {
         } else return stage
       })
       return(
-        <div className="row">
-          <Game
-          setModeRules={this.setModeRules}
-          strike={this.strike}
-          resetStrikes={this.resetStrikes}
-          counter={this.state.counter}
-          toggle={this.toggleCounters}
-          stages={stageList}
-          />
-        </div>
+        <Game
+        setModeRules={this.setModeRules}
+        strike={this.strike}
+        resetStrikes={this.resetStrikes}
+        counter={this.state.counter}
+        toggle={this.toggleCounters}
+        stages={stageList}
+        />
       )
     }
   }
 }
 
 ReactDOM.render((<Main />), document.getElementById('app'))
-
-// const routing = () => (
-//   <BrowserRouter>
-//       <Switch location={location}>
-//         <Route path="/" component={} exact={true} />
-//       </Switch>
-//   </BrowserRouter>
-// )

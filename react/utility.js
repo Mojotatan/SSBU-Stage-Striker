@@ -19,4 +19,9 @@ export const stageList = [
     img: 'kalos.png',
     status: 'counterpick'
   },
+  {
+    name: 'Wario Ware',
+    img: 'warioWare.png',
+    status: 'banned'
+  }
 ]
