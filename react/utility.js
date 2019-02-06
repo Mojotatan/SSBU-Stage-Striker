@@ -1,3 +1,11 @@
+export const extractParams = url => {
+  let params = {}
+  url.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m, key, value) => {
+    params[key] = value.split('').filter(char => char != '/').join('')
+  })
+  return params
+}
+
 export const stageList = [
   {
     name: 'Dream Land',

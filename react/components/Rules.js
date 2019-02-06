@@ -57,8 +57,9 @@ const Rules = props => (
       </div>
     </div>
     <div className="col-xs-12">
-      {/* <button className="btn export" onClick={props.exportToUrl}>Export to URL</button> */}
       <button className="btn toGame" onClick={props.setModeGame}>Start Game</button>
+      <button className="btn export" onClick={props.exportToUrl}>Export to URL</button>
+      <span>{props.url || ''}</span>
     </div>
   </div>
 )

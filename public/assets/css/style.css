@@ -5,6 +5,12 @@ body {
 img {
   width: 100%
 }
+.rules {
+  margin-bottom: 10px
+}
+.btn.export {
+  margin-right: 15px
+}
 .rules h2 {
   text-align: center
 }
